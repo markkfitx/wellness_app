@@ -1,8 +1,8 @@
 {
   "navigation": [
     {
-      "label": "Dashboard",
-      "path": "",
+      "label": "Home",
+      "path": "/",
       "icon": "home",
       "permissions": [],
       "children": []
@@ -29,21 +29,6 @@
           ]
         }
       ]
-    }
-    ,
-    {
-      "label": "Frontline Absence & Time",
-      "path": "https://login.frontlineeducation.com/login?productId=ABSMGMT&clientId=ABSMGMT#/login",
-      "icon": "Clock",
-      "permissions": ["AESOP"],
-      "children": []
-    },
-    {
-      "label": "Settings",
-      "path": "",
-      "icon": "settings",
-      "permissions": [],
-      "children": []
     }
   ]
 } 
