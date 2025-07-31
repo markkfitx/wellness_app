@@ -2,7 +2,7 @@
   "navigation": [
     {
       "label": "Home",
-      "path": "/",
+      "path": "/Dashboard",
       "icon": "home",
       "permissions": [],
       "children": []
