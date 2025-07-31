@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import sessionData from "@/data/config/user.json"
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 
 export default function Navbar(){
@@ -34,7 +35,7 @@ export default function Navbar(){
                         <DropdownMenuSeparator />
                         <DropdownMenuItem><User className="h-[1.2rem] w-[1.2rem] mr-2"/><a href="/profile">Profile</a></DropdownMenuItem>
                         <DropdownMenuItem><Settings className="h-[1.2rem] w-[1.2rem] mr-2"/>Settings</DropdownMenuItem>
-                        <DropdownMenuItem variant="destructive"><LogOut className="h-[1.2rem] w-[1.2rem] mr-2" />Logout</DropdownMenuItem>
+                        <DropdownMenuItem variant="destructive"><LogoutLink className="flex flex-row gap-2 flex-nowrap items-center"><LogOut className="h-[1.2rem] w-[1.2rem] mr-2" />Logout</LogoutLink></DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>

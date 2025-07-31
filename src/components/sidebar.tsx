@@ -34,6 +34,7 @@ import NavItem from "@/components/utils/navigation-item"
 import navData from "@/data/config/navigation.json"
 import sessionData from "@/data/config/user.json"
 import Link from "next/link"
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components"
 
 const hasPermission = (item: { permissions: string[] }) =>
   item.permissions.length === 0 ||
@@ -134,7 +135,7 @@ export default function AppSidebar() {
               <DropdownMenuContent align="end" side="top" className="w-[--radix-popper-anchor-width]">
                 <DropdownMenuItem><Link href="/Profile">Account</Link></DropdownMenuItem>
                 <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Sign out</DropdownMenuItem>
+                <DropdownMenuItem><LogoutLink>Sign out</LogoutLink></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>

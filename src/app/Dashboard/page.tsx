@@ -9,7 +9,7 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider'
 export default async function Dashboard({children,}: Readonly<{children: React.ReactNode;}>) {
     const {isAuthenticated} = getKindeServerSession(); // THIS IS A PROMISE
     if(!(await isAuthenticated())){
-        redirect("api/auth.login")
+        redirect("api/auth/login")
     }
     
 
