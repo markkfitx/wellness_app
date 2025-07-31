@@ -1,0 +1,49 @@
+{
+  "navigation": [
+    {
+      "label": "Dashboard",
+      "path": "",
+      "icon": "home",
+      "permissions": [],
+      "children": []
+    },
+    {
+      "label": "My Information",
+      "path": "",
+      "icon": "fileText",
+      "permissions": [],
+      "children": [
+        {
+          "label": "Personal Data",
+          "path": "",
+          "icon": "",
+          "permissions": [],
+          "children": [
+            {
+              "label": "Demographics",
+              "path": "?DEST=hrPers",
+              "icon": "",
+              "permissions": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+    ,
+    {
+      "label": "Frontline Absence & Time",
+      "path": "https://login.frontlineeducation.com/login?productId=ABSMGMT&clientId=ABSMGMT#/login",
+      "icon": "Clock",
+      "permissions": ["AESOP"],
+      "children": []
+    },
+    {
+      "label": "Settings",
+      "path": "",
+      "icon": "settings",
+      "permissions": [],
+      "children": []
+    }
+  ]
+} 
