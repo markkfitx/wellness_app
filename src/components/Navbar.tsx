@@ -12,9 +12,12 @@ import {
 } from "@/components/ui/dropdown-menu"
 import sessionData from "@/data/config/user.json"
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 
 export default function Navbar(){
+    const {isAuthenticated} = getKindeServerSession(); // THIS IS A PROMISE
+    const isLoggedIn = isAuthenticated()
     return (
         <nav className="px-5 py-4 flex items-center justify-between">
             {/*LEFT*/}
@@ -33,9 +36,13 @@ export default function Navbar(){
                     <DropdownMenuContent sideOffset={10}>
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem><User className="h-[1.2rem] w-[1.2rem] mr-2"/><a href="/profile">Profile</a></DropdownMenuItem>
-                        <DropdownMenuItem><Settings className="h-[1.2rem] w-[1.2rem] mr-2"/>Settings</DropdownMenuItem>
-                        <DropdownMenuItem variant="destructive"><LogoutLink className="flex flex-row gap-2 flex-nowrap items-center"><LogOut className="h-[1.2rem] w-[1.2rem] mr-2" />Logout</LogoutLink></DropdownMenuItem>
+                        {isLoggedIn && (
+                            <>
+                                <DropdownMenuItem><User className="h-[1.2rem] w-[1.2rem] mr-2"/><a href="/profile">Profile</a></DropdownMenuItem>
+                                <DropdownMenuItem><Settings className="h-[1.2rem] w-[1.2rem] mr-2"/>Settings</DropdownMenuItem>
+                                <DropdownMenuItem variant="destructive"><LogoutLink className="flex flex-row gap-2 flex-nowrap items-center"><LogOut className="h-[1.2rem] w-[1.2rem] mr-2" />Logout</LogoutLink></DropdownMenuItem>
+                            </>
+                        )}
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>

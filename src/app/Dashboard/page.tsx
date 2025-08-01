@@ -11,8 +11,6 @@ export default async function Dashboard({children,}: Readonly<{children: React.R
     if(!(await isAuthenticated())){
         redirect("api/auth/login")
     }
-    
-
     return(
         <>
         <ThemeProvider 
