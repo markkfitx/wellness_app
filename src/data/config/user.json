@@ -4,7 +4,7 @@
             "name": "Mark",
             "email": "",
             "permissions":["REQUISITION|","CLOCKIO|", "AESOP|", "ORGDIRECTORY|", "JOBPOSTINGS|", "BRANDINGSTYLING|", "ADMIN|", "LEAVEREQAPPROVAL|", "LEAVECAL|", "WORKCAL|", "LEAVELIST|", "BESMGR|", "BESENR|", "KEYTIMELIST|", "PTTE|", "JOBREQ|", "JOBREQAPPROVAL|", "JOBENTRY|", "JOBMANENTRY|", "APPMGR|", "APPMGRFULL|", "JOBMGR|", "JOBANNREQ|", "MANAGER|", "MANAGERFULL|", "MANAGERLESS|", "MANAGERMORE|", "TRAPPROVAL|", "KEYTIMEAPPROVAL|"],
-            "profilePicture": "src/assets/images/profile_meep.png"
+            "profilePicture": "/src/img/profile_meep.png"
         }        
     ]
 }
