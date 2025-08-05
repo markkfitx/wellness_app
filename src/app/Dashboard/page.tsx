@@ -7,7 +7,7 @@ import Sidebar from "@/components/sidebar"
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import NavigationTabs from "@/components/wrappers/NavigationTabs-Wrapper";
 
-export default async function Dashboard({children,}: Readonly<{children: React.ReactNode;}>) {
+export default async function Dashboard() {
     const {isAuthenticated} = getKindeServerSession(); // THIS IS A PROMISE
     if(!(await isAuthenticated())){
         redirect("api/auth/login")
@@ -25,7 +25,6 @@ export default async function Dashboard({children,}: Readonly<{children: React.R
                 <Navbar />
                 <div className="px-5">
                   <NavigationTabs />
-                  {children}
                 </div>
               </main>
             </SidebarProvider>
