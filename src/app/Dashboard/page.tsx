@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import SidebarProvider from '@/components/wrappers/sidebar-wrapper'
 import Sidebar from "@/components/sidebar"
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
+import NavigationTabs from "@/components/wrappers/NavigationTabs-Wrapper";
 
 export default async function Dashboard({children,}: Readonly<{children: React.ReactNode;}>) {
     const {isAuthenticated} = getKindeServerSession(); // THIS IS A PROMISE
@@ -22,7 +23,10 @@ export default async function Dashboard({children,}: Readonly<{children: React.R
               <Sidebar />
               <main className="w-full flex flex-col">
                 <Navbar />
-                <div className="px-5">{children}</div>
+                <div className="px-5">
+                  <NavigationTabs />
+                  {children}
+                </div>
               </main>
             </SidebarProvider>
             
