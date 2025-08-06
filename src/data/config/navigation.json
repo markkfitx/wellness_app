@@ -19,7 +19,22 @@
       "path": "/Dashboard/Health",
       "icon": "heartPulse",
       "permissions": [],
-      "children": []
+      "children": [
+        {
+          "label": "Water Intake",
+          "path": "/Dashboard/Health/Water",
+          "icon": "",
+          "permissions": [],
+          "children":[]
+        },
+        {
+          "label": "Meals",
+          "path": "/Dashboard/Health/Meals",
+          "icon": "",
+          "permissions": [],
+          "children":[]
+        }
+      ]
     },
     {
       "label": "Exercise Planning",

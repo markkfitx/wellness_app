@@ -1,12 +1,12 @@
 // app/dashboard/layout.tsx
 import { ReactNode } from 'react';
-import Breadcrumb from "@/components/wrappers/breadcrumbs";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
-import Navbar from '@/components/Navbar';
+import PrimaryNavbar from '@/components/Navbar/primary_navbar';
 import SidebarProvider from '@/components/wrappers/sidebar-wrapper';
 import Sidebar from "@/components/sidebar";
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import SecondaryNavbar from '@/components/Navbar/secondary_navbar';
 
 export default async function DashboardLayout({
   children,
@@ -24,11 +24,13 @@ export default async function DashboardLayout({
       <SidebarProvider>
         <Sidebar />
         <main className="w-full flex flex-col">
-          <Navbar />
-          <div className="px-5">
-            <Breadcrumb />
-            {children}
-          </div>
+            <div className="flex flex-col gap-1">
+                <PrimaryNavbar />
+                <SecondaryNavbar />
+            </div>
+            <div className="px-5">
+                {children}
+            </div>
         </main>
       </SidebarProvider>
     </ThemeProvider>
