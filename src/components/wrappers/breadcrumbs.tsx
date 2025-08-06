@@ -15,7 +15,7 @@ export default function Breadcrumbs() {
                 <Breadcrumb>
                     <BreadcrumbList className="text-xs">
                         <BreadcrumbItem>
-                        <BreadcrumbLink href="/">KeyNet</BreadcrumbLink>
+                        <BreadcrumbLink href="/">Wellness By Mark</BreadcrumbLink>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator>
                             <SlashIcon />
