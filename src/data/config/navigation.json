@@ -8,27 +8,25 @@
       "children": []
     },
     {
-      "label": "My Information",
-      "path": "",
-      "icon": "fileText",
+      "label": "Activities",
+      "path": "/Dashboard/Activities",
+      "icon": "activity",
       "permissions": [],
-      "children": [
-        {
-          "label": "Personal Data",
-          "path": "",
-          "icon": "",
-          "permissions": [],
-          "children": [
-            {
-              "label": "Demographics",
-              "path": "?DEST=hrPers",
-              "icon": "",
-              "permissions": [],
-              "children": []
-            }
-          ]
-        }
-      ]
+      "children": []
+    },
+    {
+      "label": "Health",
+      "path": "/Dashboard/Health",
+      "icon": "heartPulse",
+      "permissions": [],
+      "children": []
+    },
+    {
+      "label": "Exercise Planning",
+      "path": "/Dashboard/Nutrition",
+      "icon": "dumbbell",
+      "permissions": [],
+      "children": []
     }
   ]
 } 

@@ -12,6 +12,9 @@ import {
   Settings,
   User,
   ChevronUp,
+  Dumbbell,
+  HeartPulse,
+  Activity,
 } from "lucide-react"
 import { SidebarMenuButton } from "../ui/sidebar"
 import clsx from "clsx"
@@ -20,6 +23,9 @@ import React from "react"
 
 const iconMap = {
   home: <Home className="h-4 w-4 me-2" />,
+  dumbbell: <Dumbbell className="h-4 w-4 me-2" />,
+  heartPulse: <HeartPulse className="h-4 w-4 me-2" />,
+  activity: <Activity className="h-4 w-4 me-2" />,
   inbox: <Inbox className="h-4 w-4 me-2" />,
   settings: <Settings className="h-4 w-4 me-2" />,
   user: <User className="h-4 w-4 me-2" />,

@@ -5,8 +5,6 @@ import Navbar from '@/components/Navbar'
 import SidebarProvider from '@/components/wrappers/sidebar-wrapper'
 import Sidebar from "@/components/sidebar"
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
-import NavigationTabs from "@/components/wrappers/NavigationTabs-Wrapper";
-
 export default async function Dashboard() {
     const {isAuthenticated} = getKindeServerSession(); // THIS IS A PROMISE
     if(!(await isAuthenticated())){
@@ -24,7 +22,6 @@ export default async function Dashboard() {
               <main className="w-full flex flex-col">
                 <Navbar />
                 <div className="px-5">
-                  <NavigationTabs />
                 </div>
               </main>
             </SidebarProvider>
