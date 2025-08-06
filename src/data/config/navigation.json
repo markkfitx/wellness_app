@@ -9,7 +9,7 @@
     },
     {
       "label": "Activities",
-      "path": "/Dashboard/Activities",
+      "path": "/Dashboard/Activity",
       "icon": "activity",
       "permissions": [],
       "children": []
@@ -23,7 +23,7 @@
     },
     {
       "label": "Exercise Planning",
-      "path": "/Dashboard/Nutrition",
+      "path": "/Dashboard/Exercise",
       "icon": "dumbbell",
       "permissions": [],
       "children": []
