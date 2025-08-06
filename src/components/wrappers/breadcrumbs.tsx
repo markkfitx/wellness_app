@@ -10,7 +10,7 @@ import { SlashIcon } from "lucide-react"
 
 export default function Breadcrumbs() {
     return (
-        <div className="row row-cols-1 pb-5">
+        <div className="row row-cols-1">
             <div className="col">
                 <Breadcrumb>
                     <BreadcrumbList className="text-xs">

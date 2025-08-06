@@ -63,9 +63,6 @@ export default function AppSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-
-      <SidebarSeparator className="ms-0" />
-
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Navigation</SidebarGroupLabel>
@@ -79,32 +76,13 @@ export default function AppSidebar() {
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <SidebarMenu>
-                        {item.children.filter(hasPermission).map((subItem, ndx) => (
-                          <SidebarMenuSub key={`sub-${ndx}`}>
-                            <SidebarMenuSubItem>
-                              {subItem.children && subItem.children.length > 0 ? (
-                                <Collapsible className="group/collapsible">
-                                  <CollapsibleTrigger asChild>
-                                    <NavItem path={subItem.path} label={subItem.label} icon={subItem.icon} nested={true}/>
-                                  </CollapsibleTrigger>
-                                  <CollapsibleContent>
-                                    <SidebarMenu>
-                                      {subItem.children
-                                        .filter(hasPermission)
-                                        .map((subSubItem, rdx) => (
-                                          <SidebarMenuItem key={`subsub-${rdx}`}>
-                                            <NavItem path={subSubItem.path} label={subSubItem.label} icon={subSubItem.icon} nested={false}/>
-                                          </SidebarMenuItem>
-                                        ))}
-                                    </SidebarMenu>
-                                  </CollapsibleContent>
-                                </Collapsible>
-                              ) : (
-                                <NavItem path={subItem.path} label={subItem.label} icon={subItem.icon} nested={false}/>
-                              )}
-                            </SidebarMenuSubItem>
-                          </SidebarMenuSub>
-                        ))}
+                        <SidebarMenuSub key={`submenu-${idx}`}>
+                          {item.children.filter(hasPermission).map((subItem, ndx) => (
+                              <SidebarMenuSubItem key={`subitem-${ndx}`}>
+                                  <NavItem path={subItem.path} label={subItem.label} icon={subItem.icon} nested={false}/>
+                              </SidebarMenuSubItem>
+                          ))}
+                        </SidebarMenuSub>
                       </SidebarMenu>
                     </CollapsibleContent>
                   </Collapsible>

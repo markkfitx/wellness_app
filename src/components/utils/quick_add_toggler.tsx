@@ -13,7 +13,7 @@ export default function QuickAddToggler(){
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon">
-                    <Plus className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                    <Plus className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all " />
                     <span className="sr-only">Quick Add Button</span>
                 </Button>
             </DropdownMenuTrigger>

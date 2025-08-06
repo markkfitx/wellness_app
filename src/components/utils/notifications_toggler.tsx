@@ -13,7 +13,7 @@ export default function NotificationToggler(){
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon">
-                    <Bell className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                    <Bell className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all" />
                     <span className="sr-only">Notification Bell</span>
                 </Button>
             </DropdownMenuTrigger>
