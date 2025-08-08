@@ -1,14 +1,12 @@
-
 import { SidebarProvider } from '@/components/ui/sidebar'
-import { cookies } from "next/headers"
+//import { cookies } from "next/headers"
 type ChildrenOBJ = {
     children: React.ReactNode
 }
-export default async function SidebarWrapper({ children }: ChildrenOBJ) {
+export default function SidebarWrapper({ children }: ChildrenOBJ) {
   
-  const cookieStore = await cookies()
-  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
-  
+  //const cookieStore = cookies()
+  const defaultOpen = true;//cookieStore.get('sidebar_state')?.value === 'true'  
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       {children}

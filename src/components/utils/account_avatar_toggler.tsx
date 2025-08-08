@@ -6,10 +6,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { LogOut, Settings, User } from "lucide-react";
+import { Settings, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import sessionData from "@/data/config/user.json"
-import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LogoutButton } from "./logout-button";
 export default function AccountAvatarToggler(){
     return(
     <DropdownMenu>
@@ -24,7 +24,7 @@ export default function AccountAvatarToggler(){
             <DropdownMenuSeparator />
             <DropdownMenuItem><User className="h-[1.2rem] w-[1.2rem] mr-2"/><a href="/Dashboard/Account">Profile</a></DropdownMenuItem>
             <DropdownMenuItem><Settings className="h-[1.2rem] w-[1.2rem] mr-2"/><a href="/Dashboard/Settings">Settings</a></DropdownMenuItem>
-            <DropdownMenuItem variant="destructive"><LogoutLink className="flex flex-row gap-2 flex-nowrap items-center"><LogOut className="h-[1.2rem] w-[1.2rem] mr-2" />Logout</LogoutLink></DropdownMenuItem>
+            <DropdownMenuItem variant="destructive"><LogoutButton/></DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>
     )
