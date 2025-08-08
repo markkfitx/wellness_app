@@ -13,7 +13,7 @@ export function LoginShell() {
           supabaseClient={supabase}
           appearance={{ theme: ThemeSupa }}
           providers={['google']} // or ['google', 'github']
-          theme="dark" // optional: use 'default', 'dark', or 'magiclink'
+          theme="light" // optional: use 'default', 'dark', or 'magiclink'
           redirectTo={`${window.location.origin}/Dashboard`} // optional for redirect after OAuth
         />
       </div>

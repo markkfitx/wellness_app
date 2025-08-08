@@ -1,9 +1,6 @@
-// src/app/login/page.tsx
-// see src/components/wrappers/login-wrapper for full page
-import { createClient } from '@/utils/supabase/server';
+import { LoginForm } from '@/components/auth/login-form'
+import {createClient} from '@/utils/supabase/server'
 import { redirect } from 'next/navigation';
-import { LoginShell } from '@/components/wrappers/login-wrapper';
-
 export default async function LoginPage() {
   const supabase = await createClient();
   const {
@@ -13,6 +10,9 @@ export default async function LoginPage() {
   if (session?.user) {
     redirect('/Dashboard');
   }
-
-  return <LoginShell />;
+  return (
+    <div className="container py-10">
+      <LoginForm />
+    </div>
+  )
 }
