@@ -5,7 +5,7 @@ import SecondaryNavbar from '@/components/Navbar/secondary-navbar.client'
 import ClientWrapper from '@/app/Dashboard/client-wrapper' // we'll create this
 
 export default async function DashboardLayout({ children }: { children: ReactNode }) {
-  const supabase = createClient()
+  const supabase = await createClient()
   const {
     data: { session },
   } = await supabase.auth.getSession()
