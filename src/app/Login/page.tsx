@@ -1,6 +1,7 @@
 import { LoginForm } from '@/components/auth/login-form'
 import {createClient} from '@/utils/supabase/server'
 import { redirect } from 'next/navigation';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export default async function LoginPage() {
   const supabase = await createClient();
   const {
@@ -8,10 +9,11 @@ export default async function LoginPage() {
   } = await supabase.auth.getSession();
 
   if (session?.user) {
+    await fetch(`${baseUrl}/api/cache-user`);
     redirect('/Dashboard');
   }
   return (
-    <div className="container py-10">
+    <div className="md:min-w-[700px] md:max-w-[800px] py-10">
       <LoginForm />
     </div>
   )
