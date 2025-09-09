@@ -10,6 +10,7 @@ import { Settings, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import sessionData from "@/data/config/user.json"
 import { LogoutButton } from "./logout-button";
+import Link from "next/link"
 export default function AccountAvatarToggler(){
     return(
     <DropdownMenu>
@@ -22,8 +23,8 @@ export default function AccountAvatarToggler(){
         <DropdownMenuContent sideOffset={10}>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem><User className="h-[1.2rem] w-[1.2rem] mr-2"/><a href="/Dashboard/Account">Profile</a></DropdownMenuItem>
-            <DropdownMenuItem><Settings className="h-[1.2rem] w-[1.2rem] mr-2"/><a href="/Dashboard/Settings">Settings</a></DropdownMenuItem>
+            <DropdownMenuItem><User className="h-[1.2rem] w-[1.2rem] mr-2"/><Link href="/Dashboard/Settings">Profile</Link></DropdownMenuItem>
+            <DropdownMenuItem><Settings className="h-[1.2rem] w-[1.2rem] mr-2"/><Link href="/Dashboard/Settings">Settings</Link></DropdownMenuItem>
             <DropdownMenuItem variant="destructive"><LogoutButton/></DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>

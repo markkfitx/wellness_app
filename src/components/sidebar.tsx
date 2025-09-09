@@ -112,7 +112,7 @@ export default function AppSidebar() {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" side="top" className="w-[--radix-popper-anchor-width]">
-                <DropdownMenuItem><Link href="/Profile">Account</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link href="/Dashboard/Settings">Account</Link></DropdownMenuItem>
                 <DropdownMenuItem>Billing</DropdownMenuItem>
                 <DropdownMenuItem><LogoutButton/></DropdownMenuItem>
               </DropdownMenuContent>
