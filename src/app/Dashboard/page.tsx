@@ -1,19 +1,18 @@
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
+import WelcomeWidget from '@/components/Widgets/welcome';
 export default async function Dashboard() {
   const supabase = await createClient();
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
+  const {data: { session },} = await supabase.auth.getSession();
+  
   if (!session?.user) {
     redirect('/Login'); // or show fallback
   }
   return (
     <div>
-      <h1 className="text-2xl font-bold">Welcome to your Dashboard</h1>
-      {/* More content */}
+      <WelcomeWidget></WelcomeWidget>
+      
     </div>
   );
 }
