@@ -24,7 +24,7 @@ export default function DashboardLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`flex justify-center items-center ${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SupabaseSessionProvider>{children}</SupabaseSessionProvider>
       </body>
     </html>

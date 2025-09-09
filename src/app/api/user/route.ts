@@ -15,9 +15,9 @@ export async function GET() {
   const { user } = session;
 
   const { data: profile, error } = await supabase
-    .from('users')
+    .from('user_data')
     .select('*')
-    .eq('id', user.id)
+    .eq('id', session.user.id)
     .single();
 
   if (error) {

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
@@ -8,6 +9,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { createClient } from '@/utils/supabase/client'
+import appleLogo from "@/img/Apple_logo_white.svg"
+import googleLogo from "@/img/Google_Favicon_2025.svg"
+import metaLogo from "@/img/Facebook_white.svg"
 
 export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) {
   const supabase = createClient()
@@ -38,7 +42,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8" onSubmit={handleSubmit}>
+          <form className="pl-0 py-6 pr-6" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
@@ -93,12 +97,12 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
               </div>
 
               <div className="grid grid-cols-3 gap-4">
-                <Button variant="outline" type="button" className="w-full">
-                  {/* Apple SVG */}
+                <Button variant="default" type="button" className="w-full">
+                  <Image alt="Apple Icon" src={appleLogo} width="15" height="15" />
                   <span className="sr-only">Login with Apple</span>
                 </Button>
                 <Button
-                  variant="outline"
+                  variant="default"
                   type="button"
                   className="w-full"
                   onClick={async () => {
@@ -110,11 +114,11 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
                     })
                   }}
                 >
-                  {/* Google SVG */}
+                  <Image alt="Google Icon" src={googleLogo} width="15" height="15" />
                   <span className="sr-only">Login with Google</span>
                 </Button>
-                <Button variant="outline" type="button" className="w-full">
-                  {/* Meta SVG */}
+                <Button variant="default" type="button" className="w-full">
+                  <Image alt="Meta Icon" src={metaLogo} width="15" height="15" />
                   <span className="sr-only">Login with Meta</span>
                 </Button>
               </div>

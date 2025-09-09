@@ -3,10 +3,12 @@ import NotificationToggler from "../utils/notifications_toggler";
 import AccountAvatarToggler from "../utils/account_avatar_toggler";
 import QuickAddToggler from "../utils/quick_add_toggler";
 import SearchBar from "../utils/search_bar";
+import SidebarToggler from '../utils/sidebar-toggler'
 
 export default function Navbar(){
     return (
-        <nav className="pl-22 pr-5 py-2 flex items-center justify-between gap-4 border-b">
+        <nav className="pl-5 pr-5 py-2 flex items-center justify-between gap-4 border-b">
+            <SidebarToggler />
             <SearchBar />
             <div className="flex items-center gap-2">
                 <AccountAvatarToggler />
