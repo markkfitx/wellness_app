@@ -32,6 +32,20 @@ export async function uploadProfileImage(file: File, userID: string): Promise<Up
   if (uploadErr) {
     throw new Error(uploadErr.message);
   }
+  else{
+    // SAVE TO PROFILES table to reference for session Storage.
+    const { data: old, error: signedError } = await supabase
+    .from('profiles')
+    .select('avatar_version')
+    .eq('id', userID)
+    .single();
+    const newVersion = (old?.avatar_version ?? 0) + 1;
+
+    await supabase
+        .from('profiles')
+        .update({ avatar_path: path, avatar_version: newVersion })
+        .eq('id', userID);
+  }
 
   // PUBLIC bucket: get a public URL
   const { data: signed, error: signedErr } = await supabase.storage
@@ -85,7 +99,7 @@ export async function deleteAvatarAction() {
   if (delErr) return { error: delErr.message };
 
   // (Optional) also clear the DB profile record
-  // await supabase.from('profiles').update({ avatar_url: null }).eq('id', user.id);
+  await supabase.from('profiles').update({ avatar_url: null }).eq('id', user.id);
 
   return { ok: true as const, path };
 }
