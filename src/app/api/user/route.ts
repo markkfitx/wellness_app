@@ -15,7 +15,7 @@ export async function GET() {
   const { user } = session;
 
   const { data: profile, error } = await supabase
-    .from('user_data')
+    .from('profiles')
     .select('*')
     .eq('id', session.user.id)
     .single();

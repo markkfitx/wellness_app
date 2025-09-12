@@ -12,14 +12,15 @@ import { createClient } from '@/utils/supabase/client'
 import appleLogo from "@/img/Apple_logo_white.svg"
 import googleLogo from "@/img/Google_Favicon_2025.svg"
 import metaLogo from "@/img/Facebook_white.svg"
+import {getUserSession} from "@/utils/handleSessionStorage"
 
 export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) {
   const supabase = createClient()
   const router = useRouter()
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +35,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<'div'>) 
       setLoading(false)
       return
     }
-
+    getUserSession()
     router.push('/Dashboard')
   }
 

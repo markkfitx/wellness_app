@@ -13,7 +13,7 @@ export async function GET() {
   }
 
   const { data: userData, error } = await supabase
-    .from('user_data')
+    .from('profiles')
     .select('*')
     .eq('user_id', session.user.id)
     .single();
@@ -23,7 +23,7 @@ export async function GET() {
   }
 
   // Store a JSON string in a cookie
-  cookies().set('user_data', JSON.stringify(userData), {
+  cookies().set('profiles', JSON.stringify(userData), {
     httpOnly: false, // ❗️Set to true to secure from JS access if needed
     maxAge: 60 * 60, // 1 hour
   });

@@ -46,7 +46,7 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<'div'
       return
     }
 
-    const { error: profileError } = await supabase.from('user_data').insert([
+    const { error: profileError } = await supabase.from('profiles').insert([
       {
         id: data.user.id,
         email,
