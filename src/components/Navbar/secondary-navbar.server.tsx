@@ -3,11 +3,9 @@ import { createClient } from '@/utils/supabase/server'
 
 export default async function SecondaryNavbar() {
   const supabase = await createClient()
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
-
+  const {data} = await supabase.auth.getUser()
+  const user = data.user
   return (
-    <NavbarClient session={session} />
+    <NavbarClient user={user} />
   )
 }

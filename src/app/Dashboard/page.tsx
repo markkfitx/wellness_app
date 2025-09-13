@@ -4,9 +4,9 @@ import WelcomeWidget from '@/components/Widgets/welcome';
 export default async function Dashboard() {
   const supabase = await createClient();
 
-  const {data: { session },} = await supabase.auth.getSession();
+  const {data, error: userErr} = await supabase.auth.getUser();
   
-  if (!session?.user) {
+  if (userErr || !data?.user) {
     redirect('/Login'); // or show fallback
   }
   return (

@@ -1,12 +1,12 @@
 'use client'
 
-import type { Session } from '@supabase/supabase-js'
+import type { User } from '@supabase/supabase-js'
 
 type SecondaryNavbarProps = {
-  session: Session | null
+  user: User | null
 }
 
-export default function SecondaryNavbar({ session }: SecondaryNavbarProps) {
+export default function SecondaryNavbar({ user }: SecondaryNavbarProps) {
   return (
     <nav className="py-2 flex items-center justify-between gap-4">
       <div className="flex flex-row items-center gap-10">

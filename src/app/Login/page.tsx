@@ -5,11 +5,10 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export default async function LoginPage() {
   const supabase = await createClient();
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data, error : userErr} = await supabase.auth.getUser();
 
-  if (session?.user) {
-    await fetch(`${baseUrl}/api/cache-user`);
+  if (userErr || data?.user) {
+    await fetch('/api/user', { method: 'GET' });;
     redirect('/Dashboard');
   }
   return (

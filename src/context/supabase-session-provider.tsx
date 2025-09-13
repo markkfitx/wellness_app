@@ -11,7 +11,7 @@ export const SupabaseSessionProvider = ({ children }: { children: React.ReactNod
   const supabase = createClient()
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => setSession(session))
+    supabase.auth.getUser().then(({ data: { user } }) => setSession(session))
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)

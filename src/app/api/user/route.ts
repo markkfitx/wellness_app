@@ -1,29 +1,41 @@
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import { createClient } from '@/utils/supabase/server';
 import { NextResponse } from 'next/server';
 
-export async function GET() {
-  const supabase = createRouteHandlerClient({ cookies: () => cookies() });
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+export const runtime = 'nodejs';        // ensure Node APIs are available
+export const dynamic = 'force-dynamic'; // avoid stale cache for auth
 
-  if (!session?.user) {
-    return NextResponse.json({ message: 'Not authenticated' }, { status: 401 });
+export async function GET() {
+  const supabase = await createClient();
+
+  const { data: { user }, error: userErr } = await supabase.auth.getUser();
+
+  if (userErr || !user) {
+    return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
   }
 
-  const { user } = session;
-
-  const { data: profile, error } = await supabase
+  const { data: userData, error: profErr } = await supabase
     .from('profiles')
     .select('*')
-    .eq('id', session.user.id)
+    .eq('user_id', user.id)
     .single();
 
-  if (error) {
-    console.error('Profile fetch error:', error.message);
-    return NextResponse.json({ message: 'Profile not found' }, { status: 404 });
+  if (profErr) {
+    return NextResponse.json({ error: profErr.message }, { status: 500 });
   }
 
-  return NextResponse.json({ user: profile });
+  // ✅ Use NextResponse to set the cookie
+  const response = NextResponse.json({ success: true });
+  response.cookies.set({
+    name: 'profiles',
+    value: JSON.stringify(userData),
+    httpOnly: false, // true if you don’t want client JS to read it
+    maxAge: 60 * 60, // 1 hour
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production'
+  });
+
+  // Optional: prevent caching by intermediaries
+  response.headers.set('Cache-Control', 'no-store');
+  return response;
 }
